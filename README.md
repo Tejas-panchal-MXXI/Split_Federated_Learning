@@ -66,6 +66,20 @@ Before running the notebook, download this dataset from Kaggle and upload the ex
 
 The notebook loads images from the dataset's `train` directory, creates an 80/20 training/validation split, and distributes the training portion among five simulated clients. It then compares fixed and variable split-point experiments with a no-split baseline.
 
+## 📊 Example results
+
+The screenshot below shows one notebook run on a CUDA-enabled device. In that run, the notebook reported 1,101 samples, split into 880 training samples distributed across five clients and 221 held-out samples. The reported comparison was:
+
+| Model | Split points | Validation accuracy | Training time | Communication payload |
+|---|---|---:|---:|---:|
+| Fixed split | `[2, 2, 2, 2, 2]` | 97.29% | 112.90 s | 550.00 MB |
+| Variable split | `[1, 2, 3, 4, 5]` | 98.64% | 67.19 s | 426.25 MB |
+| No-split (centralized) | None | 98.19% | 68.02 s | 0.00 MB |
+
+In this run, the variable-split setup had the highest reported validation accuracy, while the centralized baseline had no split-learning communication payload. These are results from one run, not a guarantee of performance; outcomes can vary with the data split, hardware, and training configuration.
+
+![Notebook training output comparing fixed split, variable split, and no-split results](./assets/training-results.png)
+
 ## 📄 Dataset and usage note
 
 **Dataset:** Chest X-Ray Images (Pneumonia), from [Kaggle](https://www.kaggle.com/datasets/paultimothymooney/chest-xray-pneumonia). Follow the dataset's terms of use. This notebook is for educational purposes only; its predictions are not for clinical use.
