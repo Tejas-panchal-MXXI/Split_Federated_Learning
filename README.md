@@ -1,10 +1,10 @@
-# 🩻 Split Learning for Chest X-ray Classification
+# Split Learning for Chest X-ray Classification
 
 An educational Google Colab notebook exploring **split learning** with a convolutional neural network (CNN) to classify chest X-ray images into **NORMAL** and **PNEUMONIA** classes. The experiment compares fixed split points, variable split points across clients, and a no-split baseline.
 
 > ⚠️ This project is for learning and research only. It is not a medical diagnostic tool.
 
-## 🧰 Tech stack
+## Tech stack
 
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white)
@@ -15,17 +15,17 @@ An educational Google Colab notebook exploring **split learning** with a convolu
 ![Computer Vision](https://img.shields.io/badge/Computer_Vision-00897B?style=for-the-badge)
 ![Split Learning](https://img.shields.io/badge/Split_Learning-3949AB?style=for-the-badge)
 
-- 🧠 **Deep learning:** PyTorch CNN
-- 🖼️ **Image loading and transforms:** TorchVision
-- ☁️ **Notebook runtime and dataset storage:** Google Colab and Google Drive
-- 🔀 **Learning setup:** Split learning across simulated clients
+- **Deep learning:** PyTorch CNN
+- **Image loading and transforms:** TorchVision
+- **Notebook runtime and dataset storage:** Google Colab and Google Drive
+- **Learning setup:** Split learning across simulated clients
 
-## 📁 Project contents
+## Project contents
 
 - [`MNIST.ipynb`](./MNIST.ipynb) — the notebook for the chest X-ray split-learning experiment. Despite its filename, the notebook uses the chest X-ray dataset.
 - `chest_xray/` — a dataset copy may be present locally, but the Colab notebook reads the dataset from your Google Drive.
 
-## 📥 Dataset setup — required
+## Dataset setup — required
 
 **Dataset source:** [Chest X-Ray Images (Pneumonia) on Kaggle](https://www.kaggle.com/datasets/paultimothymooney/chest-xray-pneumonia).
 
@@ -57,7 +57,7 @@ Before running the notebook, download this dataset from Kaggle and upload the ex
    /content/drive/MyDrive/Chest_Xray/chest_xray
    ```
 
-## ▶️ Run in Google Colab
+## Run in Google Colab
 
 1. Open [`MNIST.ipynb`](./MNIST.ipynb) in Google Colab.
 2. In Colab, choose **Runtime → Change runtime type** and select a GPU if one is available (optional, but recommended).
@@ -66,7 +66,7 @@ Before running the notebook, download this dataset from Kaggle and upload the ex
 
 The notebook loads images from the dataset's `train` directory, creates an 80/20 training/validation split, and distributes the training portion among five simulated clients. It then compares fixed and variable split-point experiments with a no-split baseline.
 
-## 📊 Example results
+## Example results
 
 The screenshot below shows one notebook run on a CUDA-enabled device. In that run, the notebook reported 1,101 samples, split into 880 training samples distributed across five clients and 221 held-out samples. The reported comparison was:
 
@@ -80,6 +80,6 @@ In this run, the variable-split setup had the highest reported validation accura
 
 ![Notebook training output comparing fixed split, variable split, and no-split results](./assets/training-results.png)
 
-## 📄 Dataset and usage note
+## Dataset and usage note
 
 **Dataset:** Chest X-Ray Images (Pneumonia), from [Kaggle](https://www.kaggle.com/datasets/paultimothymooney/chest-xray-pneumonia). Follow the dataset's terms of use. This notebook is for educational purposes only; its predictions are not for clinical use.
